@@ -18,6 +18,8 @@ gem 'mysql2'
 gem 'andand'
 gem 'carrierwave'
 gem 'decent_exposure'
+gem 'rack-cors', require: 'rack/cors', github: 'cyu/rack-cors'
+gem 'angular_rails_csrf'
 
 group :doc do
   gem 'sdoc', require: false

@@ -8,5 +8,13 @@ Bundler.require(*Rails.groups)
 
 module AngularJSWorkshopsBackend
   class Application < Rails::Application
+
+    # Allow cross-domain requests
+    config.middleware.insert_after Rails::Rack::Logger, Rack::Cors, logger: Rails.logger do
+      allow do
+        origins "*"
+        resource '*', headers: :any, methods: %i[get post patch put delete options]
+      end
+    end
   end
 end
