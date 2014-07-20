@@ -11,6 +11,7 @@
 #  time         :integer
 #  created_at   :datetime
 #  updated_at   :datetime
+#  image_url    :string(255)
 #
 
 class Movie < ActiveRecord::Base
@@ -20,6 +21,11 @@ class Movie < ActiveRecord::Base
   has_many :rates, inverse_of: :movie, dependent: :destroy
   has_many :users, through: :rates, source: :movie
 
-  has_many :tags, inverse_of: :movie, dependent: :destroy
-  has_many :users, through: :tags, source: :movie
+  has_many :tag_lists, inverse_of: :movie, dependent: :destroy
+  has_many :tags, through: :tag_lists
+
+
+  def average_rate
+    (rates.map(&:value).inject(0, &:+) / rates.length).round(1) if rates.length > 0
+  end
 end

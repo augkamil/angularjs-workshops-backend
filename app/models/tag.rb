@@ -1,4 +1,14 @@
+# == Schema Information
+#
+# Table name: tags
+#
+#  id         :integer          not null, primary key
+#  name       :integer
+#  created_at :datetime
+#  updated_at :datetime
+#
+
 class Tag < ActiveRecord::Base
-  belongs_to :user, inverse_of: :tags
-  belongs_to :movie, inverse_of: :tags
+  has_many :tag_lists, inverse_of: :tag, dependent: :destroy
+  has_many :movies, through: :tag_lists
 end

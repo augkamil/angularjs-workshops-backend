@@ -3,7 +3,7 @@ class TagsController < ApplicationController
 
   expose(:movie)
   expose(:tag, attributes: :tag_params)
-  expose(:tags) { movie.present? ? movie.tags : tags }
+  expose(:tags) { movie.id.nil? ?  Tag.all : movie.tags }
 
   def index
     respond_with tags

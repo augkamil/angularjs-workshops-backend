@@ -4,7 +4,6 @@ AngularJSWorkshopsBackend::Application.routes.draw do
   resources :users do
     resources :comments
     resources :rates
-    resources :tags
   end
   resources :rates
   resources :comments
@@ -12,5 +11,9 @@ AngularJSWorkshopsBackend::Application.routes.draw do
     resources :comments
     resources :rates
     resources :tags
+  end
+  resources :tags
+  resources :tags do
+    resources :movies
   end
 end

@@ -30,8 +30,5 @@ class User < ActiveRecord::Base
   has_many :rates, inverse_of: :user, dependent: :destroy, counter_cache: :rates_count
   has_many :movies, through: :rates, source: :user
 
-  has_many :tags, inverse_of: :user, dependent: :destroy, counter_cache: :tags_count
-  has_many :movies, through: :tags, source: :user
-
   validates :email, presence: true, uniqueness: true
 end

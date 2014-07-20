@@ -1,8 +1,9 @@
 class MoviesController < ApplicationController
   respond_to :json
 
+  expose(:tag)
   expose(:movie, attributes: :movie_params)
-  expose(:movies)
+  expose(:movies) { tag.id.nil? ? Movie.all : tag.movies }
 
   def index
     respond_with movies
@@ -31,6 +32,6 @@ class MoviesController < ApplicationController
   private
 
     def movie_params
-      params.require(:movie).permit(:title, :director, :rate, :description, :release_date, :time)
+      params.require(:movie).permit(:title, :director, :rate, :description, :release_date, :time, :image_url)
     end
 end

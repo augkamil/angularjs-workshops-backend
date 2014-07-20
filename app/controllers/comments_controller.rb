@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
 
   expose(:movie)
   expose(:comment, attributes: :comment_params)
-  expose(:comments) { movie.present? ? movie.comments : comments }
+  expose(:comments) { movie.id.nil? ? Comment.all : movie.comments }
 
   def index
     respond_with comments

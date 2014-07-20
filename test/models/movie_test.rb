@@ -11,6 +11,7 @@
 #  time         :integer
 #  created_at   :datetime
 #  updated_at   :datetime
+#  image_url    :string(255)
 #
 
 require 'test_helper'
