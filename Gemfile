@@ -14,7 +14,6 @@ gem 'haml-rails'
 gem 'devise'
 gem 'annotate', ">=2.6.0"
 gem 'unicorn'
-gem 'coffee-rails', '~> 4.0.0'
 gem 'mysql2'
 gem 'andand'
 gem 'carrierwave'
