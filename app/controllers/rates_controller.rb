@@ -3,7 +3,7 @@ class RatesController < ApplicationController
 
   expose(:movie)
   expose(:rate, attributes: :rate_params)
-  expose(:rates) { movie.present? ? movie.rates : rates }
+  expose(:rates) { movie.id.nil? ? Rate.all : movie.rates }
 
   def index
     respond_with rates

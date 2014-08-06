@@ -1,18 +1,17 @@
 # == Schema Information
 #
-# Table name: rates
+# Table name: tag_lists
 #
 #  id         :integer          not null, primary key
-#  user_id    :integer
 #  movie_id   :integer
-#  value      :integer
+#  tag_id     :integer
 #  created_at :datetime
 #  updated_at :datetime
 #
 
 require 'test_helper'
 
-class RateTest < ActiveSupport::TestCase
+class TagListTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

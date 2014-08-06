@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140715115829) do
+ActiveRecord::Schema.define(version: 20140720170845) do
 
   create_table "comments", force: true do |t|
     t.text     "body"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20140715115829) do
     t.integer  "time"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image_url"
   end
 
   add_index "movies", ["id"], name: "index_movies_on_id", using: :btree
@@ -44,9 +45,14 @@ ActiveRecord::Schema.define(version: 20140715115829) do
     t.datetime "updated_at"
   end
 
-  create_table "tags", force: true do |t|
-    t.integer  "user_id"
+  create_table "tag_lists", force: true do |t|
     t.integer  "movie_id"
+    t.integer  "tag_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tags", force: true do |t|
     t.integer  "name"
     t.datetime "created_at"
     t.datetime "updated_at"

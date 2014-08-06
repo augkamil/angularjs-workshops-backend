@@ -14,11 +14,12 @@ gem 'haml-rails'
 gem 'devise'
 gem 'annotate', ">=2.6.0"
 gem 'unicorn'
-gem 'coffee-rails', '~> 4.0.0'
 gem 'mysql2'
 gem 'andand'
 gem 'carrierwave'
 gem 'decent_exposure'
+gem 'rack-cors', require: 'rack/cors', github: 'cyu/rack-cors'
+gem 'angular_rails_csrf'
 
 group :doc do
   gem 'sdoc', require: false
